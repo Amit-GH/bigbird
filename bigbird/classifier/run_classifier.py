@@ -368,6 +368,11 @@ def main(_):
     raise ValueError(
         "At least one of `do_train`, `do_eval` must be True.")
 
+  logging.info("Printing some FLAGs:")
+  logging.info("  FLAGS.train_num_steps={}".format(FLAGS.num_train_steps))
+  logging.info("  FLAGS.eval_batch_size={}".format(FLAGS.eval_batch_size))
+  logging.info("  FLAGS.train_batch_size={}".format(FLAGS.train_batch_size))
+
   bert_config = flags.as_dictionary()
 
   if FLAGS.max_encoder_length > bert_config["max_position_embeddings"]:
