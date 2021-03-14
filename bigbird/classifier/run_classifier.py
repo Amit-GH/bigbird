@@ -79,21 +79,13 @@ flags.DEFINE_integer(
     "Local batch size for eval. "
     "Total batch size will be multiplied by number gpu/tpu cores available.")
 
-flags.DEFINE_string(
-    "optimizer", "AdamWeightDecay",
-    "Optimizer to use. Can be Adafactor, Adam, and AdamWeightDecay.")
-
-flags.DEFINE_float(
-    "learning_rate", 1e-5,
-    "The initial learning rate for Adam.")
-
 flags.DEFINE_integer(
-    "num_train_steps", 1000,
+    "num_train_steps", 2000,
     "Total number of training steps to perform."
     "This variable is not getting updated using the command line arguments!")
 
 flags.DEFINE_integer(
-    "num_train_steps_v2", 1000,
+    "num_train_steps_v2", 2000,
     "A secondary variable for num_train_steps for testing purpose. Being used because the primary variable is"
     "not getting updated using the command line arguments"
 )
@@ -109,6 +101,14 @@ flags.DEFINE_integer(
 flags.DEFINE_integer(
     "num_labels", 2,
     "Number of ways to classify.")
+
+flags.DEFINE_string(
+    "optimizer", "AdamWeightDecay",
+    "Optimizer to use. Can be Adafactor, Adam, and AdamWeightDecay.")
+
+flags.DEFINE_float(
+    "learning_rate", 1e-5,
+    "The initial learning rate for Adam.")
 
 
 def input_fn_builder(data_dir, vocab_model_file, max_encoder_length,
