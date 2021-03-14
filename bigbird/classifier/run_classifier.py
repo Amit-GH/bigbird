@@ -88,7 +88,7 @@ flags.DEFINE_float(
     "The initial learning rate for Adam.")
 
 flags.DEFINE_integer(
-    "num_train_steps", 16000,
+    "num_train_steps", 1000,
     "Total number of training steps to perform.")
 
 flags.DEFINE_integer(
@@ -369,7 +369,7 @@ def main(_):
         "At least one of `do_train`, `do_eval` must be True.")
 
   logging.info("Printing some FLAGs:")
-  logging.info("  FLAGS.train_num_steps={}".format(FLAGS.num_train_steps))
+  logging.info("  FLAGS.num_train_steps={}".format(FLAGS.num_train_steps))
   logging.info("  FLAGS.eval_batch_size={}".format(FLAGS.eval_batch_size))
   logging.info("  FLAGS.train_batch_size={}".format(FLAGS.train_batch_size))
 
