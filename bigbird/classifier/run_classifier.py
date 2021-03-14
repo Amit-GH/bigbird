@@ -89,7 +89,14 @@ flags.DEFINE_float(
 
 flags.DEFINE_integer(
     "num_train_steps", 1000,
-    "Total number of training steps to perform.")
+    "Total number of training steps to perform."
+    "This variable is not getting updated using the command line arguments!")
+
+flags.DEFINE_integer(
+    "num_train_steps_v2", 1000,
+    "A secondary variable for num_train_steps for testing purpose. Being used because the primary variable is"
+    "not getting updated using the command line arguments"
+)
 
 flags.DEFINE_integer(
     "num_warmup_steps", 1000,
@@ -370,6 +377,7 @@ def main(_):
 
   logging.info("Printing some FLAGs:")
   logging.info("  FLAGS.num_train_steps={}".format(FLAGS.num_train_steps))
+  logging.info("  FLAGS.num_train_steps_v2={}".format(FLAGS.num_train_steps_v2))
   logging.info("  FLAGS.eval_batch_size={}".format(FLAGS.eval_batch_size))
   logging.info("  FLAGS.train_batch_size={}".format(FLAGS.train_batch_size))
 
@@ -391,7 +399,8 @@ def main(_):
   if FLAGS.do_train:
     logging.info("***** Running training *****")
     logging.info("  Batch size = %d", estimator.train_batch_size)
-    logging.info("  Num steps = %d", FLAGS.num_train_steps)
+    # logging.info("  Num steps = %d", FLAGS.num_train_steps)
+    logging.info("  Num steps = %d", FLAGS.num_train_steps_v2)
     train_input_fn = input_fn_builder(
         data_dir=FLAGS.data_dir,
         vocab_model_file=FLAGS.vocab_model_file,
@@ -399,7 +408,8 @@ def main(_):
         substitute_newline=FLAGS.substitute_newline,
         tmp_dir=os.path.join(FLAGS.output_dir, "tfds"),
         is_training=True)
-    estimator.train(input_fn=train_input_fn, max_steps=FLAGS.num_train_steps)
+    # estimator.train(input_fn=train_input_fn, max_steps=FLAGS.num_train_steps)
+    estimator.train(input_fn=train_input_fn, max_steps=FLAGS.num_train_steps_v2)
 
   if FLAGS.do_eval:
     logging.info("***** Running evaluation *****")
