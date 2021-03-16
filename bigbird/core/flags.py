@@ -178,7 +178,7 @@ flags.DEFINE_string(
 # Extra duplicate flags from run_classifier for testing as they are not working there.
 flags.DEFINE_integer(
     "num_train_steps", 3000,
-    "Total number of training steps to perform."
+    "Total number of training steps to perform. "
     "This variable is not getting updated using the command line arguments!"
 )
 
