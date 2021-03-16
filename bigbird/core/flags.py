@@ -175,19 +175,6 @@ flags.DEFINE_string(
     "iterations_per_loop", "1000",
     "How many steps to make in each estimator call.")
 
-# Extra duplicate flags from run_classifier for testing as they are not working there.
-flags.DEFINE_integer(
-    "num_train_steps", 3000,
-    "Total number of training steps to perform. "
-    "This variable is not getting updated using the command line arguments!"
-)
-
-flags.DEFINE_integer(
-    "num_train_steps_v2", 3000,
-    "A secondary variable for num_train_steps for testing purpose. Being used because the primary variable is"
-    "not getting updated using the command line arguments"
-)
-
 def as_dictionary():
   """Get current config from flag."""
 
