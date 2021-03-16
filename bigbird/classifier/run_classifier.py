@@ -79,17 +79,17 @@ flags.DEFINE_integer(
     "Local batch size for eval. "
     "Total batch size will be multiplied by number gpu/tpu cores available.")
 
-flags.DEFINE_integer(
-    "num_train_steps", 2000,
-    "Total number of training steps to perform defined in flags.py. "
-    "This variable is not getting updated using the command line arguments!"
-)
-
-flags.DEFINE_integer(
-    "num_train_steps_v2", 2000,
-    "A secondary variable for num_train_steps for testing purpose. Being used because the primary variable is"
-    "not getting updated using the command line arguments"
-)
+# flags.DEFINE_integer(
+#     "num_train_steps", 2000,
+#     "Total number of training steps to perform defined in flags.py. "
+#     "This variable is not getting updated using the command line arguments!"
+# )
+#
+# flags.DEFINE_integer(
+#     "num_train_steps_v2", 2000,
+#     "A secondary variable for num_train_steps for testing purpose. Being used because the primary variable is"
+#     "not getting updated using the command line arguments"
+# )
 
 flags.DEFINE_integer(
     "num_warmup_steps", 1000,
