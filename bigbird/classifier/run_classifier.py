@@ -80,12 +80,13 @@ flags.DEFINE_integer(
     "Total batch size will be multiplied by number gpu/tpu cores available.")
 
 flags.DEFINE_integer(
-    "num_train_steps", 2000,
+    "num_train_steps", None,
     "Total number of training steps to perform."
-    "This variable is not getting updated using the command line arguments!")
+    "This variable is not getting updated using the command line arguments!"
+)
 
 flags.DEFINE_integer(
-    "num_train_steps_v2", 2000,
+    "num_train_steps_v2", None,
     "A secondary variable for num_train_steps for testing purpose. Being used because the primary variable is"
     "not getting updated using the command line arguments"
 )
